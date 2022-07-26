@@ -1,2 +1,2 @@
 # shell-scripting
-devops-shell
+This repo is for Shell scripting ....
