@@ -1,2 +1,3 @@
-# shell-scripting
+# shell-scripting/ Bash
 This repo is for Shell Scripting ......
+
