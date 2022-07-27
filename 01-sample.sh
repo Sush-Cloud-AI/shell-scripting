@@ -21,3 +21,13 @@ echo -e "\e[35mI am Maganta\e[0m"
 
 # forefround clour
 echo -e "\e[45;33mI am yellow\e[0m"
+
+# varaiables
+
+a=10
+b=abc
+
+# when to use quotes --- when input has special character 
+
+echo $a
+echo $b
