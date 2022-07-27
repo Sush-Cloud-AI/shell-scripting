@@ -108,3 +108,5 @@ stat(){
     echo "The average load from 15 minutes is $(uptime  | awk -F : '{print $NF}' | awk -F , '{print $3}')"
     echo " the number of connected users are $(who | wc -l) "
 }
+
+stat
