@@ -71,4 +71,4 @@ echo "The name of the user is $2"
 
 # $* will print all the vriables decleared in the script
 
-$*
+echo $*
