@@ -23,7 +23,7 @@ echo -e "\e[35mI am Maganta\e[0m"
 echo -e "\e[45;33mI am yellow\e[0m"
 
 # varaiables
-
+# local variables
 a=10
 b=abc
 
@@ -37,6 +37,14 @@ echo ${b}   # same as $b
 
 echo "THis is a undefined variable $c"
 
-# declaring value in command line 
+# declaring value in command line are environment variables 
 
 echo " The value of D is $d"
+
+# always local(inside script) var >> env variabl(command line)
+
+
+## dynamic output
+
+date_command=$(date +%F)
+echo "Todays date id $date_command"
