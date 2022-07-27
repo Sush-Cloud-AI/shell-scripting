@@ -36,3 +36,7 @@ echo ${b}   # same as $b
 # undefined value 
 
 echo "THis is a undefined variable $c"
+
+# declaring value in command line 
+
+echo " The value of D is $d"
