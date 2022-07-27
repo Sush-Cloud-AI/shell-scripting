@@ -31,6 +31,7 @@ b=abc
 
 echo $a
 echo $b
+echo ${b}   # same as $b
 
 # undefined value 
 
