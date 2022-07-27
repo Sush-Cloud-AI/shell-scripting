@@ -79,3 +79,15 @@ echo " the number of cli variables are $#"
 
 read -p 'Enter your name: ' NAME
 echo -e "Name = $NAME"
+
+## function
+
+first_fun(){
+    echo "This is the fist line of the function"
+    echo "Today date is $(date +%F)"
+    echo "This the end of the function"
+}
+# calling the function
+first_fun
+sleep 10
+first_fun
