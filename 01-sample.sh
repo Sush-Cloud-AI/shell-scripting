@@ -73,3 +73,9 @@ echo "clli varaibles used are $*"
 
 # will print the count of the cli variables
 echo " the number of cli variables are $#"
+
+
+# input from user
+
+read -p 'Enter your name: ' NAME
+echo -e "Name = $NAME"
