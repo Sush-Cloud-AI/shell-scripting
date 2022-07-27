@@ -48,3 +48,4 @@ echo " The value of D is $d"
 
 date_command=$(date +%F)
 echo "Todays date id $date_command"
+echo "The number of users signed in are $(who | wc -l)"
