@@ -49,3 +49,12 @@ echo " The value of D is $d"
 date_command=$(date +%F)
 echo "Todays date id $date_command"
 echo "The number of users signed in are $(who | wc -l)"
+
+
+### special variables
+
+# $0  : This will print the script name that you are runing
+# $?  : Will show the status code of the last execution 
+# $0 to $n , $*, $@, $#, $$
+
+echo "script we are exeuting is $0"
