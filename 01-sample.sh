@@ -68,3 +68,7 @@ echo "The name of the user is $2"
 
 # sh script.sh 10 20 30 
 #              $1 $2 $3
+
+# $* will print all the vriables decleared in the script
+
+$*
