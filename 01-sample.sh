@@ -61,14 +61,15 @@ echo "script we are exeuting is $0"
 
 # # Through command line we can pass upto 9 variables
 
+echo "The value of x is $1"
+echo "The name of the user is $2"
 
-
-#echo "The value of x is $1"
-#echo "The name of the user is $2"
-
-# sh script.sh 10 20 30 
+# sh script.sh 10 20 30     # pass values 
 #              $1 $2 $3
+t
 
-# $* will print all the vriables decleared in the script
+## will print all the declared cli varibales $* 
+echo "clli varaibles used are $*"
 
-echo $*
+# will print the count of the cli variables
+echo " the number of cli variables are $#"
