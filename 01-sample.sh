@@ -31,3 +31,7 @@ b=abc
 
 echo $a
 echo $b
+
+# undefined value 
+
+echo "THis is a undefined variable $c"
