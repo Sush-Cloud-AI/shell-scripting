@@ -1,4 +1,4 @@
-#!/bin/bash
+!/bin/bash
 
 echo "Hello world"
 
@@ -120,3 +120,6 @@ source ./ext_func.sh
 
 echo "calling a fuction from external file"
 ext_fun
+
+##---------------------------------------
+
