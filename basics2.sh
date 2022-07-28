@@ -22,8 +22,16 @@
 
 ## changing the exit code 
 
-echo hi
+# echo hi
 
-exit 1    #  run $?
+# exit 1    #  run $?
 
-echo welcome back
+# echo welcome back
+
+### changing the power of variables using quotes 
+
+a=10
+echo $a
+echo "$(a)"
+echo ${a}
+echo '$a'
