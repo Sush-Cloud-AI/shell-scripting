@@ -38,7 +38,7 @@ echo '$a'
 
 ########## conditions
 
-## case
+## case exampele 1
 
 read input_srting
 
@@ -53,5 +53,19 @@ case $input_srting in
         echo "I dont understand type hello or bye"
 esac
 
+## case examples 2
 
+Action = $1
+
+
+case $Action in
+    start)
+        echo "sevice starting"
+        ;;
+    bye)
+        echo "service stopping"
+        ;;
+    *)
+        echo -e "\e[33m should be either stop or start \e[0m"
+esac
 
