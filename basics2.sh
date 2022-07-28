@@ -66,7 +66,7 @@ case $Action in
         echo "service stopping"
         ;;
     *)
-        echo -e "\e[33m should be either stop or start \e[0m"
+        echo -e "\e[33mShould be either stop or start \e[0m"
         ;;
 esac
 
