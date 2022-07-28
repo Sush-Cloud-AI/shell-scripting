@@ -14,8 +14,16 @@
 ### exit code
 
 
-echo hi
+# echo hi
 
-exit 0
+# exit 0   # run $?
 
-echo welcome back 
+# echo welcome back
+
+## changing the exit code 
+
+cho hi
+
+exit 1    #  run $?
+
+echo welcome back
