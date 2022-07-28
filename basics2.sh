@@ -55,14 +55,14 @@ echo '$a'
 
 ## case examples 2
 
-Action = $1
+Action=$1
 
 
 case $Action in
     start)
         echo "sevice starting"
         ;;
-    bye)
+    stop)
         echo "service stopping"
         ;;
     *)
