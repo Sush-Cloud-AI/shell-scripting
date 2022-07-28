@@ -22,7 +22,7 @@
 
 ## changing the exit code 
 
-cho hi
+echo hi
 
 exit 1    #  run $?
 
