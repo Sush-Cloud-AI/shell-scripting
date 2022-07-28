@@ -55,18 +55,26 @@ echo '$a'
 
 ## case examples 2
 
-Action=$1
+# Action=$1
 
 
-case $Action in
-    start)
-        echo "sevice starting"
-        ;;
-    stop)
-        echo "service stopping"
-        ;;
-    *)
-        echo -e "\e[33mShould be either stop or start \e[0m"
-        ;;
-esac
+# case $Action in
+#     start)
+#         echo "sevice starting"
+#         ;;
+#     stop)
+#         echo "service stopping"
+#         ;;
+#     *)
+#         echo -e "\e[33mShould be either stop or start \e[0m"
+#         ;;
+# esac
 
+#### Mutli line comment
+
+<<COMMENT
+echo "This a multi line comment"
+
+a=2
+echo $a
+COMMENT
