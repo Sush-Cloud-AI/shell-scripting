@@ -110,3 +110,13 @@ stat(){
 }
 
 stat
+
+
+### calling a function from external file 
+
+### to call the function we need to source the path of the file from 
+## which the function is called
+source ./ext_func.sh
+
+echo "calling a fuction from external file"
+ext_fun
