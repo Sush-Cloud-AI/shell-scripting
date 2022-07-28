@@ -67,5 +67,6 @@ case $Action in
         ;;
     *)
         echo -e "\e[33m should be either stop or start \e[0m"
+        ;;
 esac
 
