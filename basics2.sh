@@ -121,7 +121,7 @@ Par=$1
  first_fun(){
     echo "This is the fist line of the function"
     echo "Today date is $(date +%F)"
-    return
+    return                           ### will skip the rest of the function
     echo "This the end of the function"
 }
 
@@ -132,3 +132,15 @@ stat(){
 
 first_fun
 stat
+
+######## logical AND & Logical OR
+
+### command1 && command2
+###command 2 will be executed if command1 is suscessfull
+
+##command1 || command2
+##command2 will execute only if command1 is failure 
+
+echo "hai" && echo "hello"
+
+lsblk 
