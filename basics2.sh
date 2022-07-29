@@ -145,4 +145,31 @@ echo "hai" && echo "hello"
 
 lsblkf && echo "will not execute because its an AND"
 
-lsblkfd || echo "this will execute because it a OP"
+lsblkfd || echo "this will execute because it a OR"
+
+
+### SED (streamline editor )
+## Delete the line
+## sustitute the line
+## Adds sthe line
+
+## operates in two mode inset that is updates the file with -i
+### else it will display the option in the terminal (default behaviour)
+
+
+##### delete
+###    sed '/root/ d' passwd.txt
+###    sed -i -e '/root/ d' passwd.txt  
+###    sed -i -e '/root/ d' -e '/nologin/ d' passwd.txt ## will delete both root and no login at a shot
+
+##     sed -i -e '13 d' passwd.txt  ## specific line 13 
+
+## replace
+### sed -i -e 's/root/ROOT/' passwd.txt ## replace root with ROOT
+### sed -i -e 's/nologin/login/gi'  ### global replce  and i stands for ignore case senstive of replcaing word
+
+## adding
+
+### sed -e '1 i hello' passwd.txt will inser hello in first line
+### sed -e '10 a hello' passwd.txt will inser hello iafter 10 line
+###  sed -e '/sshd/ c HELLO' will replce the entire line with HELLO 
