@@ -86,7 +86,7 @@
 
 Par=$1
 
-if ["$Par" = "start"] ; then
+if [ "$Par" = "start" ] ; then
     echo -e "Selected option is start"
 fi
 
