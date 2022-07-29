@@ -75,18 +75,18 @@
 
 #### Mutli line comment
 
-<<COMMENT
-echo "This a multi line comment"
+# <<COMMENT
+# echo "This a multi line comment"
 
-a=2
-echo $a
-COMMENT
+# a=2
+# echo $a
+# COMMENT
 
 #### if condtion
 
 Par=$1
 
-if ["$Par" = "start"] ; then
+if ["$Par"="start"] ; then
     echo -e "Selected option is \e[32m start \e[0m"
 fi
 
