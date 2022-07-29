@@ -86,8 +86,18 @@
 
 Par=$1
 
+
+# ## simple if
+# if [ "$Par" = "start" ] ; then
+#     echo -e "Selected option is \e[32m start \e[0m"
+# fi
+
+### ifelse
+
 if [ "$Par" = "start" ] ; then
     echo -e "Selected option is \e[32m start \e[0m"
+else
+    echo -e "Choose a valid option"
 fi
 
 
