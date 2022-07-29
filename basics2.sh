@@ -30,11 +30,11 @@
 
 ### changing the power of variables using quotes 
 
-a=10
-echo $a
-echo "${a}"
-echo ${a}
-echo '$a'    
+# a=10
+# echo $a
+# echo "${a}"
+# echo ${a}
+# echo '$a'    
 
 ########## conditions
 
@@ -61,12 +61,15 @@ echo '$a'
 # case $Action in
 #     start)
 #         echo "sevice starting"
+#         exit 0
 #         ;;
 #     stop)
 #         echo "service stopping"
+#         exit 0
 #         ;;
 #     *)
 #         echo -e "\e[33mShould be either stop or start \e[0m"
+#         exit 1
 #         ;;
 # esac
 
@@ -78,3 +81,15 @@ echo "This a multi line comment"
 a=2
 echo $a
 COMMENT
+
+#### if condtion
+
+Par=$1
+
+if ["$Par" = "start"]; then
+    echo -e "Selected option is \e[32mstart \e[0m"
+fi
+
+
+
+
