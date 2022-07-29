@@ -86,8 +86,8 @@ COMMENT
 
 Par=$1
 
-if ["$Par" = "start"]; then
-    echo -e "Selected option is \e[32mstart \e[0m"
+if ["$Par" = "start"] ; then
+    echo -e "Selected option is \e[32m start \e[0m"
 fi
 
 
