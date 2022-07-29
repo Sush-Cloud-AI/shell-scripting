@@ -110,5 +110,8 @@ elif [ "$Par" = "re-start" ] ; then
     echo -e "Selected option is \e[33m restart \e[0m"
 else
     echo -e "Choose a valid option"
+    exit 8
 fi
 
+### logical opertors
+ ###refer notes
