@@ -94,12 +94,21 @@ Par=$1
 
 ### ifelse
 
+# if [ "$Par" = "start" ] ; then
+#     echo -e "Selected option is \e[32m start \e[0m"
+# else
+#     echo -e "Choose a valid option"
+# fi
+
+### elif 
+
 if [ "$Par" = "start" ] ; then
-    echo -e "Selected option is \e[32m start \e[0m"
+    echo -e "Selected option is \e[31m start \e[0m"
+elif [ "$Par" = "stop" ] ; then
+    echo -e "Selected option is \e[32m stop \e[0m"
+elif [ "$Par" = "re-start" ] ; then
+    echo -e "Selected option is \e[33m restart \e[0m"
 else
     echo -e "Choose a valid option"
 fi
-
-
-
 
