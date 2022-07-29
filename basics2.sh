@@ -143,4 +143,6 @@ stat
 
 echo "hai" && echo "hello"
 
-lsblk 
+lsblkf && echo "will not execute because its an AND"
+
+lsblkfd || echo "this will execute because it a OP"
