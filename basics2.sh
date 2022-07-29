@@ -102,16 +102,33 @@ Par=$1
 
 ### elif 
 
-if [ "$Par" = "start" ] ; then
-    echo -e "Selected option is \e[31m start \e[0m"
-elif [ "$Par" = "stop" ] ; then
-    echo -e "Selected option is \e[32m stop \e[0m"
-elif [ "$Par" = "re-start" ] ; then
-    echo -e "Selected option is \e[33m restart \e[0m"
-else
-    echo -e "Choose a valid option"
-    exit 8
-fi
+# if [ "$Par" = "start" ] ; then
+#     echo -e "Selected option is \e[31m start \e[0m"
+# elif [ "$Par" = "stop" ] ; then
+#     echo -e "Selected option is \e[32m stop \e[0m"
+# elif [ "$Par" = "re-start" ] ; then
+#     echo -e "Selected option is \e[33m restart \e[0m"
+# else
+#     echo -e "Choose a valid option"
+#     exit 8
+# fi
 
 ### logical opertors
  ###refer notes
+
+
+ ### return 
+ first_fun(){
+    echo "This is the fist line of the function"
+    echo "Today date is $(date +%F)"
+    return
+    echo "This the end of the function"
+}
+
+stat(){
+    echo "The average load from 15 minutes is $(uptime  | awk -F : '{print $NF}' | awk -F , '{print $3}')"
+    echo " the number of connected users are $(who | wc -l) "
+}
+
+first_fun
+stat
