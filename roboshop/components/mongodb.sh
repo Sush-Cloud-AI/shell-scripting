@@ -41,8 +41,8 @@ stat $?
 cd mongodb-main
 
 echo -n "Injecting the $COMPONENT schemma: "
-mongo < catalogue.js
-mongo < users.js
+mongo < catalogue.js &>> $LOGFILE
+mongo < users.js &>> $LOGFILE
 stat $?
 
 echo -e "\e[32m _________________$COMPONENT configuration is completed________________\e[0m"
