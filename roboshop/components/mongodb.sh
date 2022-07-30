@@ -47,4 +47,6 @@ mongo < catalogue.js &>> $LOGFILE
 mongo < users.js &>> $LOGFILE
 stat $?
 
+systemctl status mongod -l
+
 echo -e "\e[32m _________________$COMPONENT configuration is completed________________\e[0m"
