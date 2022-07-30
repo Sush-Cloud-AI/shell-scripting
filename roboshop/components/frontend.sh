@@ -7,18 +7,11 @@ LOGFILE="/tmp/COMPONENT.log"
 ## sourcing the if loop to check if the user is root or not
 source components/common.sh
 
-## fuction to check if the execution of command is sucessfull
-stat(){
-    if [ $1 -eq 0 ] ; then
-    echo -e "\e[32m SUCCESS \e[0m"
-else
-    echo -e "\e[31m FAILURE \e[0m"
-fi
-}
+
 
 echo -n "Installing nginx: "
 yum install nginx -y &>> $LOGFILE
-stat $?
+stat $? ### stat function in comman folder 
 
 systemctl enable nginx &>> $LOGFILE
 
