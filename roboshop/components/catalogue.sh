@@ -2,30 +2,35 @@
 
 set -e  # exits the code if a cammnad fails
 COMPONENT=catalogue
+USER="roboshop"
 LOGFILE="/tmp/$COMPONENT.log"
 REOP_URL="https://github.com/stans-robot-project/catalogue/archive/main.zip"
 
 
 echo -n "Configuring nodejs Repo: "
-curl -sL https://rpm.nodesource.com/setup_lts.x | bash
+curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>> LOGFILE
 stat $?
 
 echo -n "Installing nodejs: "
-yum install nodejs -y
+yum install nodejs -y &>> LOGFILE
 stat $?
 
-echo -n "Creating the roboshop user: "
-useradd roboshop
+echo -n "Creating the $USER user: "
+useradd $USER
 stat $?
+
+sudo su - $USER
 
 echo -n "Downloading the $COMPONENT Repo: "
-curl -s -L -o /tmp/$COMPONENT.zip $REPO_URL
+curl -s -L -o /tmp/$COMPONENT.zip $REPO_URL &>> LOGFILE
 sata $?
-#$ cd /home/roboshop
-#$ unzip /tmp/$COMPONENT.zip
-#$ mv $COMPONENT-main $COMPONENT
-#$ cd /home/roboshop/$COMPONENT
-#$ npm install
+
+
+# cd /home/roboshop
+# unzip -o /tmp/$COMPONENT.zip
+# mv $COMPONENT-main $COMPONENT
+# cd /home/roboshop/$COMPONENT
+# npm install
 
 # Update MONGO_DNSNAME with MongoDB Server IP
 # vim systemd.servce
