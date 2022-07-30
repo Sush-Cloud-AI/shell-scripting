@@ -26,6 +26,9 @@ echo -n "Downloading the $COMPONENT Repo: "
 curl -s -L -o /tmp/$COMPONENT.zip $REPO_URL &>> LOGFILE
 stat $?
 
+echo -n "Performing cleanup: "
+cd /home/$USER && rm -rf $COMPONENT
+
 echo -n "Unzipping $COMPONENT Repo: "
 cd /home/roboshop
 unzip -o /tmp/$COMPONENT.zip &>> LOGFILE
