@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e  # exits the code if a cammnad fails
+#set -e  # exits the code if a cammnad fails
 
 yum install nginxxx -y
 systemctl enable nginx
