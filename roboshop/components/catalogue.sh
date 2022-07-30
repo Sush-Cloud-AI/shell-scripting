@@ -45,7 +45,7 @@ stat $?
 
 ### # Update MONGO_DNSNAME with MongoDB Server IP
 echo -n "configuring the MONGO_DNSNAME "
-sed -i -e 's/MONGO_DNSNAME/catalogue.robooutlet.internal' systemd.service
+sed -i -e 's/MONGO_DNSNAME/catalogue.robooutlet.internal/' systemd.service
 mv /home/roboshop/$COMPONENT/systemd.service /etc/systemd/system/$COMPONENT.service
 stat $?
 
