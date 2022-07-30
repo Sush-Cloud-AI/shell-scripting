@@ -18,7 +18,7 @@ yum install nodejs -y &>> LOGFILE
 stat $?
 
 echo -n "Creating the $USER user: "
-id $USER || useradd $USER
+id $USER &>> LOGFILE || useradd $USER
 stat $?
 
 
@@ -28,14 +28,15 @@ stat $?
 
 echo -n "Unzipping $COMPONENT Repo: "
 cd /home/roboshop
-unzip -o /tmp/$COMPONENT.zip
+unzip -o /tmp/$COMPONENT.zip &>> LOGFILE
 mv $COMPONENT-main $COMPONENT
 cd /home/roboshop/$COMPONENT
 stat $?
 
 echo -n "Installing $COMPONENT: "
-npm install
+npm install &>> LOGFILE
 stat $?
+
 # Update MONGO_DNSNAME with MongoDB Server IP
 # vim systemd.servce
 
