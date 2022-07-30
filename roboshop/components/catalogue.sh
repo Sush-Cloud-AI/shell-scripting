@@ -28,6 +28,7 @@ stat $?
 
 echo -n "Performing cleanup: "
 cd /home/$USER && rm -rf $COMPONENT
+stat $?
 
 echo -n "Unzipping $COMPONENT Repo: "
 cd /home/roboshop
