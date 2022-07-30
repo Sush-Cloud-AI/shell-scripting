@@ -18,10 +18,9 @@ yum install nodejs -y &>> LOGFILE
 stat $?
 
 echo -n "Creating the $USER user: "
-useradd $USER
+id $USER || useradd $USER
 stat $?
 
-sudo su - $USER
 
 echo -n "Downloading the $COMPONENT Repo: "
 curl -s -L -o /tmp/$COMPONENT.zip $REPO_URL &>> LOGFILE
