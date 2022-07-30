@@ -34,8 +34,10 @@ stat $?
 
 cd /tmp
 
+### we need to give unzip  -o to overide the prompt that it will give to unzip the seccond time 
+####when we re run the code 
 echo -n "Extracting the $COMPONENT schemma: "
-unzip mongodb.zip &>> $LOGFILE
+unzip -o mongodb.zip &>> $LOGFILE
 stat $?
 
 cd mongodb-main
