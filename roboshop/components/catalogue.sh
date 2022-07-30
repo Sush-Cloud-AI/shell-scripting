@@ -51,10 +51,10 @@ stat $?
 
 echo -n "Starting $COMPONENT seervice: "
 systemctl daemon-reload &>> $LOGFILE
-systemctl restart catalogue &>> $LOGFILE
-systemctl enable catalogue &>> $LOGFILE
+systemctl restart $COMPONENT &>> $LOGFILE
+systemctl enable $COMPONENT &>> $LOGFILE
 stat $?
 
-systemctl status catalogue -l
+systemctl status $COMPONENT -l
 
 echo -e "\e[32m _________________$COMPONENT configuration is completed________________\e[0m"
