@@ -2,7 +2,7 @@
 
 # set -e  # exits the code if a cammnad fails
 
-yum install nginx -y
+yum install nginxxx -y
 systemctl enable nginx
 systemctl start nginx
 curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/frontend/archive/main.zip"
