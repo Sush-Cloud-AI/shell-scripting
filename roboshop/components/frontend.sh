@@ -1,8 +1,14 @@
 #!/bin/bash
 
-#set -e  # exits the code if a cammnad fails
+set -e  # exits the code if a cammnad fails
 
-yum install nginxxx -y
+User_id=$(id -u) 
+
+if [ User_id -ne 0 ] ; then
+    echo -e "\e[31m You need to run it as a root user \e[0m"
+    exit 1
+fi
+yum install nginx-y
 systemctl enable nginx
 systemctl start nginx
 curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/frontend/archive/main.zip"
