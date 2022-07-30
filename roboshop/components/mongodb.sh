@@ -6,7 +6,7 @@ source components/common.sh
 COMPONENT=mongodb
 LOGFILE="/tmp/COMPONENT.log"
 REPO_URL="https://raw.githubusercontent.com/stans-robot-project/mongodb/main/mongo.repo"
-
+SCHEMA_URL="https://github.com/stans-robot-project/mongodb/archive/main.zip"
 
 echo -n "Downloading $COMPONENT repo : "
 curl -s -o /etc/yum.repos.d/mongodb.repo $REPO_URL &>> $LOGFILE
@@ -28,11 +28,21 @@ systemctl enable mongod &>> $LOGFILE
 systemctl restart mongod &>> $LOGFILE
 stat $?
 
+echo -n "Downloading $COMPONENT schema: "
+curl -s -L -o /tmp/mongodb.zip $SCHEMA_URL &>> $LOGFILE
+stat $?
 
-# curl -s -L -o /tmp/mongodb.zip "https://github.com/stans-robot-project/mongodb/archive/main.zip"
+cd /tmp
 
-# cd /tmp
-# unzip mongodb.zip
-# cd mongodb-main
-# mongo < catalogue.js
-# mongo < users.js
+echo -n "Extracting the $COMPONENT schemma: "
+unzip mongodb.zip &>> $LOGFILE
+stat $?
+
+cd mongodb-main
+
+echo -n "Injecting the $COMPONENT schemma: "
+mongo < catalogue.js
+mongo < users.js
+stat $?
+
+echo -e "\e[32m _________________$COMPONENT configuration is completed________________\e[0m"
