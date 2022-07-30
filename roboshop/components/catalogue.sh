@@ -50,9 +50,9 @@ mv /home/roboshop/$COMPONENT/systemd.service /etc/systemd/system/$COMPONENT.serv
 stat $?
 
 echo -n "Starting $COMPONENT seervice: "
-systemctl daemon-reload
-systemctl restart catalogue
-systemctl enable catalogue
+systemctl daemon-reload &>> $LOGFILE
+systemctl restart catalogue &>> $LOGFILE
+systemctl enable catalogue &>> $LOGFILE
 stat $?
 
 systemctl status catalogue -l
