@@ -5,7 +5,7 @@ set -e  # exits the code if a cammnad fails
 source components/common.sh
 COMPONENT=mongodb
 LOGFILE="/tmp/COMPONENT.log"
-REPO_URL= "https://raw.githubusercontent.com/stans-robot-project/mongodb/main/mongo.repo"
+REPO_URL="https://raw.githubusercontent.com/stans-robot-project/mongodb/main/mongo.repo"
 
 
 echo -n "Downloading $COMPONENT repo : "
