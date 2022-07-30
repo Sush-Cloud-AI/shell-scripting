@@ -4,7 +4,7 @@ set -e  # exits the code if a cammnad fails
 ## sourcing the if loop to check if the user is root or not
 source components/common.sh
 COMPONENT=mongodb
-LOGFILE="/tmp/COMPONENT.log"
+LOGFILE="/tmp/$COMPONENT.log"
 REPO_URL="https://raw.githubusercontent.com/stans-robot-project/mongodb/main/mongo.repo"
 SCHEMA_URL="https://github.com/stans-robot-project/mongodb/archive/main.zip"
 

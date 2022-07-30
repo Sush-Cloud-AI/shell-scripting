@@ -2,7 +2,7 @@
 
 set -e  # exits the code if a cammnad fails
 COMPONENT=frontend
-LOGFILE="/tmp/COMPONENT.log"
+LOGFILE="/tmp/$COMPONENT.log"
 
 ## sourcing the if loop to check if the user is root or not
 source components/common.sh
