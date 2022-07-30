@@ -26,13 +26,16 @@ echo -n "Downloading the $COMPONENT Repo: "
 curl -s -L -o /tmp/$COMPONENT.zip $REPO_URL &>> LOGFILE
 stat $?
 
+echo -n "Unzipping $COMPONENT Repo: "
+cd /home/roboshop
+unzip -o /tmp/$COMPONENT.zip
+mv $COMPONENT-main $COMPONENT
+cd /home/roboshop/$COMPONENT
+stat $?
 
-# cd /home/roboshop
-# unzip -o /tmp/$COMPONENT.zip
-# mv $COMPONENT-main $COMPONENT
-# cd /home/roboshop/$COMPONENT
-# npm install
-
+echo -n "Installing $COMPONENT: "
+npm install
+stat $?
 # Update MONGO_DNSNAME with MongoDB Server IP
 # vim systemd.servce
 
