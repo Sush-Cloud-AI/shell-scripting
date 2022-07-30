@@ -4,7 +4,7 @@ set -e  # exits the code if a cammnad fails
 COMPONENT=catalogue
 USER="roboshop"
 LOGFILE="/tmp/$COMPONENT.log"
-REOP_URL="https://github.com/stans-robot-project/catalogue/archive/main.zip"
+REPO_URL="https://github.com/stans-robot-project/catalogue/archive/main.zip"
 
 ## sourcing the if loop to check if the user is root or not
 source components/common.sh
