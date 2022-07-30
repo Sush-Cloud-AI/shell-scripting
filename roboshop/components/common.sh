@@ -72,7 +72,7 @@ CONFIG_SERVICE(){
     echo -n "configuring the $COMPONENT: "
     sed -i -e 's/MONGO_DNSNAME/mongodb.robooutlet.internal/' systemd.service
     sed -i -e 's/REDIS_ENDPOINT/redis.robooutlet.internal/' -e 's/MONGO_ENDPOINT/mongodb.robooutlet.internal/' systemd.service
-
+    sed -i -e 's/REDIS_ENDPOINT/redis.robooutlet.internal/' -e 's/CATALOGUE_ENDPOINT/catalogue.robooutlet.internal/' systemd.service
     mv /home/roboshop/$COMPONENT/systemd.service /etc/systemd/system/$COMPONENT.service
     stat $?
 }
