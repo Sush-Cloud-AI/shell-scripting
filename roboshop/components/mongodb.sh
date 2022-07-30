@@ -1,12 +1,12 @@
 #!/bin/bash
 
 set -e  # exits the code if a cammnad fails
+## sourcing the if loop to check if the user is root or not
+source components/common.sh
 COMPONENT=mongodb
 LOGFILE="/tmp/COMPONENT.log"
 REPO_URL= "https://raw.githubusercontent.com/stans-robot-project/mongodb/main/mongo.repo"
 
-## sourcing the if loop to check if the user is root or not
-source components/common.sh
 
 echo -n "Downloading $COMPONENT repo : "
 curl -s -o /etc/yum.repos.d/mongodb.repo $REPO_URL &>> $LOGFILE
