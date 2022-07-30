@@ -24,7 +24,7 @@ stat $?
 
 echo -n "Downloading the $COMPONENT Repo: "
 curl -s -L -o /tmp/$COMPONENT.zip $REPO_URL &>> LOGFILE
-sat $?
+stat $?
 
 
 # cd /home/roboshop
