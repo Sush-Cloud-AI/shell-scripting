@@ -70,7 +70,9 @@ NPM_INSTALL() {
 CONFIG_SERVICE(){
     ### # Update MONGO_DNSNAME with MongoDB Server IP
     echo -n "configuring the MONGO_DNSNAME: "
-    sed -i -e 's/MONGO_DNSNAME/catalogue.robooutlet.internal/' systemd.service
+    sed -i -e 's/MONGO_DNSNAME/mongodb.robooutlet.internal/' systemd.service
+    sed -i -e 's/REDIS_ENDPOINT/redis.robooutlet.internal/' -e 's/MONGO_ENDPOINT/mongodb.robooutlet.internal/' systemd.service
+
     mv /home/roboshop/$COMPONENT/systemd.service /etc/systemd/system/$COMPONENT.service
     stat $?
 }
