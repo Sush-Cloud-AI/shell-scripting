@@ -2,7 +2,7 @@
 
 set -e  # exits the code if a cammnad fails
 
-source ./common.sh
+source components/common.sh
 
 yum install nginx-y
 systemctl enable nginx
