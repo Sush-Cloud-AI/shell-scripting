@@ -45,15 +45,15 @@ if [ $? -eq 0 ] ; then
     stat $?
 fi
 
-# echo -n "dwonlading the schema"
-# curl -s -L -o /tmp/mysql.zip $SCHEMA_URL &>> $LOGFILE
-# stat $?
+echo -n "dwonlading the schema"
+curl -s -L -o /tmp/mysql.zip $SCHEMA_URL &>> $LOGFILE
+stat $?
 
-# echo -n "Extracting the schema"
-# cd /tmp
-# unzip -o mysql.zip &>> $LOGFILE
-# stat $?
+echo -n "Extracting the schema"
+cd /tmp
+unzip -o mysql.zip &>> $LOGFILE
+stat $?
 
-# echo -n "injecting the schema"
-# cd mysql-main && mysql -u root -pRoboShop@1 < shipping.sql &>> $LOGFILE
-# stat $?
+echo -n "injecting the schema"
+cd mysql-main && mysql -u root -pRoboShop@1 < shipping.sql &>> $LOGFILE
+stat $?
