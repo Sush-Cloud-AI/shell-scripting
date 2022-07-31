@@ -15,9 +15,6 @@ stat $? ### stat function in comman folder
 
 systemctl enable nginx &>> $LOGFILE
 
-echo -n "Starting ngnix"
-systemctl start nginx
-stat $?
 
 echo -n "Downloading $COMPONENT repo: "
 curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/frontend/archive/main.zip" &>> $LOGFILE
@@ -39,8 +36,16 @@ rm -rf frontend-main README.md
 mv localhost.conf /etc/nginx/default.d/roboshop.conf
 stat $?
 
-#ech0 -n "Updating IP Address/DNS Name in the Nginx Reverse Proxy File: "
+ech0 -n "Updating IP Address/DNS Name in the Nginx Reverse Proxy File: "
 
-#sed -i -e ''
+sed  -e '/catalogue/s/localhost/catalogue.robooutlet.internal/' /etc/nginx/default.d/roboshop.conf
+sed  -e '/user/s/localhost/user.robooutlet.internal/' /etc/nginx/default.d/roboshop.conf
+sed  -e '/shipping/s/localhost/shipping.robooutlet.internal/' /etc/nginx/default.d/roboshop.conf
+sed  -e '/payment/s/localhost/payment.robooutlet.internal/' /etc/nginx/default.d/roboshop.conf
+stat $?
+
+echo -n "Re-starting ngnix"
+systemctl restart nginx
+stat $?
 
 echo -e "\e[32m _________________$COMPONENT configuration is completed________________\e[0m"
