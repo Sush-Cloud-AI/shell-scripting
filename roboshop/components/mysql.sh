@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e  # exits the code if a cammnad fails
+
 COMPONENT=mysql
 USER="roboshop"
 LOGFILE="/tmp/$COMPONENT.log"
@@ -22,19 +22,19 @@ systemctl enable mysqld &>> $LOGFILE && systemctl start mysqld &>> $LOGFILE
 stat $?
 systemctl status mysqld -l
 
-# ## to validate if the password is already changed to RoboShop@1
-# echo " show databases " | mysql -uroot -pRoboShop@1 &>> $LOGFILE
+## to validate if the password is already changed to RoboShop@1
+echo " show databases " | mysql -uroot -pRoboShop@1 &>> $LOGFILE
 
-# if [ $? -ne 0 ] ; then 
-#     echo -n "Changing the default $COMPONENT root password: "
-#     ## getting the tempray passwd and storing it in a variable 
-#     DEFAULT_PASS=$(sudo grep "temporary password" /var/log/mysqld.log | awk '{print $NF}')  
-#     ## command to set the default password and store it in a file output redirector
-#     echo "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('RoboShop@1');" > /tmp/rootpsswd_chng
-#     ##login and changing the default passwd 
-#     mysql --connect-expired-password -uroot -p$DEFAULT_PASS  < /tmp/rootpsswd_chng &>> $LOGFILE
-#     stat $?
-# fi
+if [ $? -ne 0 ] ; then 
+    echo -n "Changing the default $COMPONENT root password: "
+    ## getting the tempray passwd and storing it in a variable 
+    DEFAULT_PASS=$(sudo grep "temporary password" /var/log/mysqld.log | awk '{print $NF}')  
+    ## command to set the default password and store it in a file output redirector
+    echo "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('RoboShop@1');" > /tmp/rootpsswd_chng
+    ##login and changing the default passwd 
+    mysql --connect-expired-password -uroot -p$DEFAULT_PASS  < /tmp/rootpsswd_chng &>> $LOGFILE
+    stat $?
+fi
 
 # echo "show plugins" | mysql -uroot -pRoboShop@1 | grep validate_password &>> $LOGFILE
 # if [ $? -eq 0 ] ; then 
