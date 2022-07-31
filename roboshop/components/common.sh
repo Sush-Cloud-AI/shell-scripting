@@ -73,6 +73,7 @@ CONFIG_SERVICE(){
     sed -i -e 's/MONGO_DNSNAME/mongodb.robooutlet.internal/' systemd.service
     sed -i -e 's/REDIS_ENDPOINT/redis.robooutlet.internal/' -e 's/MONGO_ENDPOINT/mongodb.robooutlet.internal/' systemd.service
     sed -i -e 's/REDIS_ENDPOINT/redis.robooutlet.internal/' -e 's/CATALOGUE_ENDPOINT/catalogue.robooutlet.internal/' systemd.service
+    sed -i -e 's/CARTENDPOINT/cart.robooutlet.internal/' -e 's/DBHOST/mysql.robooutlet.internal/' systemd.service
     mv /home/roboshop/$COMPONENT/systemd.service /etc/systemd/system/$COMPONENT.service
     stat $?
 }
@@ -86,4 +87,19 @@ STARTING_SERV(){
     stat $?
 
     systemctl status $COMPONENT -l
+}
+
+
+MAVEN() {
+   
+    echo -n "Installing maven: "
+    yum install maven -y &>> LOGFILE
+    stat $?
+}
+
+MVN_INSTALL(){
+    echo -n "Installing $COMPONENT"
+    mvn clean package
+    mv target/$COMPONENT-1.0.jar $COMPONENT.jar
+
 }
