@@ -10,8 +10,6 @@ redis:
 	sh components/redis.sh
 user:
 	sh components/user.sh
-cart:
-	sh components/cart.sh
 mysql:
 	sh components/mysql.sh
 shipping:
