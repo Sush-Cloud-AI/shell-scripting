@@ -55,5 +55,5 @@ unzip -o mysql.zip &>> $LOGFILE
 stat $?
 
 echo -n "injecting the schema"
-cd mysql-main && mysql -u root -pRoboShop@1 < shipping.sql &>> $LOGFILE
+cd /mysql-main && mysql -u root -pRoboShop@1 < shipping.sql &>> $LOGFILE
 stat $?
