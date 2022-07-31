@@ -13,7 +13,7 @@ echo -n "Installing nginx: "
 yum install nginx -y &>> $LOGFILE
 stat $? ### stat function in comman folder 
 
-systemctl enable nginx &>> $LOGFILE
+
 
 
 echo -n "Downloading $COMPONENT repo: "
@@ -38,14 +38,16 @@ stat $?
 
 ech0 -n "Updating IP Address/DNS Name in the Nginx Reverse Proxy File: "
 
-sed  -e '/catalogue/s/localhost/catalogue.robooutlet.internal/' /etc/nginx/default.d/roboshop.conf
-sed  -e '/user/s/localhost/user.robooutlet.internal/' /etc/nginx/default.d/roboshop.conf
-sed  -e '/shipping/s/localhost/shipping.robooutlet.internal/' /etc/nginx/default.d/roboshop.conf
-sed  -e '/payment/s/localhost/payment.robooutlet.internal/' /etc/nginx/default.d/roboshop.conf
+sed -i -e '/catalogue/s/localhost/catalogue.robooutlet.internal/' /etc/nginx/default.d/roboshop.conf
+sed -i -e '/user/s/localhost/user.robooutlet.internal/' /etc/nginx/default.d/roboshop.conf
+sed -i -e '/shipping/s/localhost/shipping.robooutlet.internal/' /etc/nginx/default.d/roboshop.conf
+sed -i -e '/payment/s/localhost/payment.robooutlet.internal/' /etc/nginx/default.d/roboshop.conf
 stat $?
 
 echo -n "Re-starting ngnix"
+systemctl enable nginx &>> $LOGFILE
 systemctl restart nginx
 stat $?
+systemctl status nginx
 
 echo -e "\e[32m _________________$COMPONENT configuration is completed________________\e[0m"
