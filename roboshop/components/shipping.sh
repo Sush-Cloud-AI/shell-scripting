@@ -19,8 +19,8 @@ DOWNLOAD_EXTRACT
 ## calling shipping install function 
 MVN_INSTALL
 
-# ### configuring service ips/dns records function
-# CONFIG_SERVICE
+### configuring service ips/dns records function
+CONFIG_SERVICE
 
-# ### calling start service 
-# STARTING_SERV
+### calling start service 
+STARTING_SERV
