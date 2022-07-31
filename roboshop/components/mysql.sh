@@ -5,7 +5,7 @@ COMPONENT=mysql
 USER="roboshop"
 LOGFILE="/tmp/$COMPONENT.log"
 REPO_URL="https://raw.githubusercontent.com/stans-robot-project/$COMPONENT/main/$COMPONENT.repo"
-
+SCHEMA_URL="https://github.com/stans-robot-project/$COMPONENT/archive/main.zip"
 ## sourcing the if loop to check if the user is root or not
 source components/common.sh
 
@@ -32,7 +32,7 @@ if [ $? -ne 0 ] ; then
     ## command to set the default password and store it in a file output redirector
     echo "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('RoboShop@1');" > /tmp/rootpsswd_chng
     ##login and changing the default passwd 
-    mysql --connect-expired-password -uroot -p$DEFAULT_PASS < /tmp/rootpsswd_chng &>> $LOGFILE
+    mysql --connect-expired-password -uroot -p$DEFAULT_PASS  < /tmp/rootpsswd_chng &>> $LOGFILE
     stat $?
 fi
 
@@ -44,3 +44,16 @@ if [ $? -eq 0 ] ; then
     mysql --connect-expired-password -uroot -pRoboShop@1 < /tmp/pass_validate.sql &>> $LOGFILE
     stat $?
 fi
+
+echo -n "dwonlading the shema"
+curl -s -L -o /tmp/mysql.zip $SCHEMA_URL &>> $LOGFILE
+stat $?
+
+echo -n "Extracting the shema"
+cd /tmp
+unzip -o mysql.zip &>> $LOGFILE
+stat $?
+
+echo -n "injecting the shema"
+cd mysql-main && mysql -u root -pRoboShop@1 <shipping.sql &>> $LOGFILE
+stat $?
