@@ -36,7 +36,7 @@ rm -rf frontend-main README.md
 mv localhost.conf /etc/nginx/default.d/roboshop.conf
 stat $?
 
-ech0 -n "Updating IP Address/DNS Name in the Nginx Reverse Proxy File: "
+echo -n "Updating IP Address/DNS Name in the Nginx Reverse Proxy File: "
 
 sed -i -e '/catalogue/s/localhost/catalogue.robooutlet.internal/' /etc/nginx/default.d/roboshop.conf
 sed -i -e '/user/s/localhost/user.robooutlet.internal/' /etc/nginx/default.d/roboshop.conf
