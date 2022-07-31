@@ -1,8 +1,8 @@
 #!/bin/bash
 
 set -e  # exits the code if a cammnad fails
-COMPONENT=user
-USER="mysql"
+COMPONENT=mysql
+USER="roboshop"
 LOGFILE="/tmp/$COMPONENT.log"
 REPO_URL="https://raw.githubusercontent.com/stans-robot-project/$COMPONENT/main/$COMPONENT.repo"
 
