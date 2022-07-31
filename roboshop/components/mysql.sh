@@ -10,7 +10,7 @@ REPO_URL="https://raw.githubusercontent.com/stans-robot-project/$COMPONENT/main/
 source components/common.sh
 
 echo -n "Configuring $COMPONENT Repo: "
-curl -s -L -o /etc/yum.repos.d/mysql.repo $REPO_URL &>> $LOGFILE
+curl -s -L -o /etc/yum.repos.d/mysql.repo $REPO_URL 
 stat $?
 
 echo -n "Installing $COMPONENT:  "
