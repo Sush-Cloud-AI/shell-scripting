@@ -93,13 +93,13 @@ STARTING_SERV(){
 MAVEN() {
    
     echo -n "Installing maven: "
-    yum install maven -y &>> LOGFILE
+    yum install maven -y &>> $LOGFILE
     stat $?
 }
 
 MVN_INSTALL(){
     echo -n "Installing $COMPONENT"
-    mvn clean package
+    mvn clean package &>> $LOGFILE
     mv target/$COMPONENT-1.0.jar $COMPONENT.jar
 
 }
