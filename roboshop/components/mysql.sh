@@ -36,14 +36,14 @@ if [ $? -ne 0 ] ; then
     stat $?
 fi
 
-# echo "show plugins" | mysql -uroot -pRoboShop@1 | grep validate_password &>> $LOGFILE
-# if [ $? -eq 0 ] ; then 
-#     echo -n "uninstall passwd validate plugin: "
-#     echo "uninstall plugin validate_password;" > /tmp/pass_validate.sql &>> $LOGFILE
+echo "show plugins" | mysql -uroot -pRoboShop@1 | grep validate_password &>> $LOGFILE
+if [ $? -eq 0 ] ; then 
+    echo -n "uninstall passwd validate plugin: "
+    echo "uninstall plugin validate_password;" > /tmp/pass_validate.sql &>> $LOGFILE
     
-#     mysql --connect-expired-password -uroot -pRoboShop@1 < /tmp/pass_validate.sql &>> $LOGFILE
-#     stat $?
-# fi
+    mysql --connect-expired-password -uroot -pRoboShop@1 < /tmp/pass_validate.sql &>> $LOGFILE
+    stat $?
+fi
 
 # echo -n "dwonlading the schema"
 # curl -s -L -o /tmp/mysql.zip $SCHEMA_URL &>> $LOGFILE
