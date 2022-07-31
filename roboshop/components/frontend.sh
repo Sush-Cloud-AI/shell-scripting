@@ -40,6 +40,7 @@ echo -n "Updating IP Address/DNS Name in the Nginx Reverse Proxy File: "
 
 sed -i -e '/catalogue/s/localhost/catalogue.robooutlet.internal/' /etc/nginx/default.d/roboshop.conf
 sed -i -e '/user/s/localhost/user.robooutlet.internal/' /etc/nginx/default.d/roboshop.conf
+sed -i -e '/cart/s/localhost/cart.robooutlet.internal/' /etc/nginx/default.d/roboshop.conf
 sed -i -e '/shipping/s/localhost/shipping.robooutlet.internal/' /etc/nginx/default.d/roboshop.conf
 sed -i -e '/payment/s/localhost/payment.robooutlet.internal/' /etc/nginx/default.d/roboshop.conf
 stat $?
