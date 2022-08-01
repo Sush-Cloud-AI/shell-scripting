@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e  # exits the code if a cammnad fails
+#set -e  # exits the code if a cammnad fails
 ## sourcing the if loop to check if the user is root or not
 source components/common.sh
 
@@ -25,11 +25,11 @@ stat $?
 
 
 rabbitmqctl list_users | grep roboshop
-# if [ $? -ne 0 ] ; then 
-#     echo -n "Adding $USER user to $COMPONENT: "
-#     sudo rabbitmqctl add_user $USER roboshop123 
-#     stat $?
-# fi
+if [ $? -ne 0 ] ; then 
+    echo -n "Adding $USER user to $COMPONENT: "
+    sudo rabbitmqctl add_user $USER roboshop123 
+    stat $?
+fi
 
 # echo -n "Configuring $USER permission for $COMPONENT: "
 # rabbitmqctl set_user_tags roboshop administrator &>> $LOGFILE
