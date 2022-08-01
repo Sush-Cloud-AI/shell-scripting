@@ -31,9 +31,9 @@ if [ $? -ne 0 ] ; then
     stat $?
 fi
 
-# echo -n "Configuring $USER permission for $COMPONENT: "
-# rabbitmqctl set_user_tags roboshop administrator &>> $LOGFILE
-# rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*" &>> $LOGFILE
-# stat $?
-# systemctl status rabbitmq-server -l
+echo -n "Configuring $USER permission for $COMPONENT: "
+rabbitmqctl set_user_tags $USER administrator &>> $LOGFILE
+rabbitmqctl set_permissions -p / $USER ".*" ".*" ".*" &>> $LOGFILE
+stat $?
+systemctl status rabbitmq-server -l
 
