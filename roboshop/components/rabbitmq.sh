@@ -8,17 +8,14 @@ COMPONENT=rabbitmq
 LOGFILE="/tmp/$COMPONENT.log"
 USER="roboshop"
 
-echo -n "Installing Erlang dependency: "
-yum install https://github.com/rabbitmq/erlang-rpm/releases/download/v23.2.6/erlang-23.2.6-1.el7.x86_64.rpm -y 
-stat $?
-
 echo -n "Configuring $COMPONENT repo: "
 curl -s https://packagecloud.io/install/repositories/$COMPONENT/$COMPONENT-server/script.rpm.sh | sudo bash &>> $LOGFILE
 stat $?
 
-echo -n "Installing $COMPONENT: "
-yum install rabbitmq-server -y &>> $LOGFILE
+echo -n "Installing Erlang dependency: "
+yum install https://github.com/rabbitmq/erlang-rpm/releases/download/v23.2.6/erlang-23.2.6-1.el7.x86_64.rpm rabbitmq-server -
 stat $?
+
 
 echo -n "Starting  $COMPONENT service: "
 systemctl enable rabbitmq-server &>> $LOGFILE
