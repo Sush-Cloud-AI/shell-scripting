@@ -12,7 +12,7 @@ echo -n "Configuring $COMPONENT repo: "
 curl -s https://packagecloud.io/install/repositories/$COMPONENT/$COMPONENT-server/script.rpm.sh | sudo bash &>> $LOGFILE
 stat $?
 
-echo -n "Installing Erlang dependency: "
+echo -n "Installing Erlang and $COMPONENT server: "
 yum install https://github.com/rabbitmq/erlang-rpm/releases/download/v23.2.6/erlang-23.2.6-1.el7.x86_64.rpm rabbitmq-server -y &>> $LOGFILE
 stat $?
 
@@ -21,6 +21,19 @@ echo -n "Starting  $COMPONENT service: "
 systemctl enable rabbitmq-server &>> $LOGFILE
 systemctl start rabbitmq-server &>> $LOGFILE
 stat $?
-systemctl status rabbitmq-server -l
 
+
+
+sudo rabbitmqctl list_users | grep $USER
+if [$? -nq 0 ] ; then 
+    echo -n "Adding $USER user to $COMPONENT: "
+    rabbitmqctl add_user $USER roboshop123
+    stat $?
+fi
+
+echo -n "Configuring $USER permission for $COMPONENT: "
+rabbitmqctl set_user_tags roboshop administrator
+rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*"
+stat $?
+systemctl status rabbitmq-server -l
 
