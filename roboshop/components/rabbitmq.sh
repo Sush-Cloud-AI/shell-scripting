@@ -25,7 +25,7 @@ stat $?
 
 
 sudo rabbitmqctl list_users | grep $USER
-if [ $? -nq 0 ] ; then 
+if [ $? -ne 0 ] ; then 
     echo -n "Adding $USER user to $COMPONENT: "
     sudo rabbitmqctl add_user $USER roboshop123
     stat $?
