@@ -13,7 +13,7 @@ curl -s https://packagecloud.io/install/repositories/$COMPONENT/$COMPONENT-serve
 stat $?
 
 echo -n "Installing Erlang dependency: "
-yum install https://github.com/rabbitmq/erlang-rpm/releases/download/v23.2.6/erlang-23.2.6-1.el7.x86_64.rpm rabbitmq-server -
+yum install https://github.com/rabbitmq/erlang-rpm/releases/download/v23.2.6/erlang-23.2.6-1.el7.x86_64.rpm rabbitmq-server -y &>> $LOGFILE
 stat $?
 
 
