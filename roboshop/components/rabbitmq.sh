@@ -24,16 +24,16 @@ stat $?
 
 
 
-sudo rabbitmqctl list_users | grep $USER &>> $LOGFILE
-if [ $? -ne 0 ] ; then 
-    echo -n "Adding $USER user to $COMPONENT: "
-    sudo rabbitmqctl add_user $USER roboshop123 &>> $LOGFILE
-    stat $?
-fi
+sudo rabbitmqctl list_users | grep $USER
+# if [ $? -ne 0 ] ; then 
+#     echo -n "Adding $USER user to $COMPONENT: "
+#     sudo rabbitmqctl add_user $USER roboshop123 
+#     stat $?
+# fi
 
-echo -n "Configuring $USER permission for $COMPONENT: "
-rabbitmqctl set_user_tags roboshop administrator &>> $LOGFILE
-rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*" &>> $LOGFILE
-stat $?
-systemctl status rabbitmq-server -l
+# echo -n "Configuring $USER permission for $COMPONENT: "
+# rabbitmqctl set_user_tags roboshop administrator &>> $LOGFILE
+# rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*" &>> $LOGFILE
+# stat $?
+# systemctl status rabbitmq-server -l
 
