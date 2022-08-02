@@ -26,7 +26,7 @@ PAYMENT_INST
 echo -n "Updating $USER user id and group id in payment.ini file: "
 UID_ROBO=$(id -u $USER)
 GID_ROBO=$(id -g $USER)
-#sed -i -e '/uid/c uid = $UID' -e '/gid/c gid = $GID' payment.ini
+sed -i -e '/uid/c uid = $UID' -e '/gid/c gid = $GID' payment.ini
 stat $?
 
 
