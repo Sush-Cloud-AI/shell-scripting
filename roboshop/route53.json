@@ -6,6 +6,6 @@
                             "Name": "COMPONENT.robooutlet.internal",
                             "Type": "A",
                             "TTL": 10,
-                         "ResourceRecords": [{ "Value": "PRIVATE_IP"}]
+                         "ResourceRecords": [{ "Value": "PRIV_IP"}]
 }}]
 }
