@@ -33,7 +33,9 @@ stat $?
 
 
 ## calling function to update systemd service file with ip address
-CONFIG_SERVICE
+#CONFIG_SERVICE
 
 # calling start service function
-STARTING_SERV
+systemctl daemon-reload 
+systemctl restart $COMPONENT 
+systemctl enable $COMPONENT 
