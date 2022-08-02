@@ -74,6 +74,7 @@ CONFIG_SERVICE(){
     sed -i -e 's/REDIS_ENDPOINT/redis.robooutlet.internal/' -e 's/MONGO_ENDPOINT/mongodb.robooutlet.internal/' systemd.service
     sed -i -e 's/REDIS_ENDPOINT/redis.robooutlet.internal/' -e 's/CATALOGUE_ENDPOINT/catalogue.robooutlet.internal/' systemd.service
     sed -i -e 's/CARTENDPOINT/cart.robooutlet.internal/' -e 's/DBHOST/mysql.robooutlet.internal/' systemd.service
+    sed -i -e 's/CARTHOST/cart.robooutlet.internal/' -e 's/USERHOST/user.robooutlet.internal/' -e 's/AMQPHOST/rabbitmq.robooutlet.internal/' systemd.service
     mv /home/roboshop/$COMPONENT/systemd.service /etc/systemd/system/$COMPONENT.service
     stat $?
 }
@@ -101,6 +102,20 @@ MVN_INSTALL(){
     echo -n "Installing $COMPONENT: "
     mvn clean package &>> $LOGFILE
     mv target/$COMPONENT-1.0.jar $COMPONENT.jar
+    stat $?
+
+}
+
+PYTHON_INST(){
+    echo -n "Install python 3: "
+    yum install python36 gcc python3-devel -y
+    stat $?
+}
+
+PAYMENT_INST(){
+    echo -n "Installing $COMPONENT: "
+    cd /home/roboshop/payment 
+    pip3 install -r requirements.txt
     stat $?
 
 }
