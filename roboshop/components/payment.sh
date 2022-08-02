@@ -26,12 +26,14 @@ PAYMENT_INST
 echo -n "Updating $USER user id and group id in payment.ini file: "
 UID_ROBO=$(id -u $USER)
 GID_ROBO=$(id -g $USER)
-sed -i -e '/uid/c uid = $UID_ROBO' -e '/gid/c gid = $GID_ROBO' payment.ini
-stat $?
+echo -n "$UID_ROBO"
+echo -n "$GID_ROBO"
+#sed -i -e '/uid/c uid = $UID_ROBO' -e '/gid/c gid = $GID_ROBO' payment.ini
+#stat $?
 
 
 ## calling function to update systemd service file with ip address
-CONFIG_SERVICE
+#CONFIG_SERVICE
 
 # calling start service function
-STARTING_SERV
+#STARTING_SERV
