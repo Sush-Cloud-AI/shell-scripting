@@ -1,3 +1,4 @@
+
 {
     "Comment": "CREATE/DELETE/UPSERT a record ",
     "Changes": [{
@@ -5,7 +6,7 @@
                 "ResourceRecordSet": {
                             "Name": "COMPONENT.robooutlet.internal",
                             "Type": "A",
-                            "TTL": 10,
+                            "TTL": 300,
                          "ResourceRecords": [{ "Value": "PRIV_IP"}]
 }}]
 }
