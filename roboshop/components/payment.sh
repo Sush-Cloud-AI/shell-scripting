@@ -27,6 +27,7 @@ echo  "Updating $USER user id and group id in payment.ini file: "
 UID_ROBO=$(id -u $USER)
 GID_ROBO=$(id -g $USER)
 
+### need to pass it in  " " for sed to recognize variables
 sed -i -e "/uid/ c uid = $UID_ROBO" -e "/gid/ c gid = $GID_ROBO" payment.ini
 stat $?
 
