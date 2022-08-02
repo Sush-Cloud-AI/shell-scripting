@@ -23,11 +23,11 @@ PAYMENT_INST
 
 
 ## need to add 
-echo -n "Updating $USER user id and group id in payment.ini file: "
+echo  "Updating $USER user id and group id in payment.ini file: "
 UID_ROBO=$(id -u $USER)
 GID_ROBO=$(id -g $USER)
-echo -n "$UID_ROBO"
-echo -n "$GID_ROBO"
+echo  "$UID_ROBO"
+echo  "$GID_ROBO"
 #sed -i -e '/uid/c uid = $UID_ROBO' -e '/gid/c gid = $GID_ROBO' payment.ini
 #stat $?
 
