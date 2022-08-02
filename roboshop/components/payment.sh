@@ -22,12 +22,16 @@ DOWNLOAD_EXTRACT
 PAYMENT_INST
 
 
-### need to add 
-#echo -n "Updating $USER user id and group id in payment.ini file: "
+## need to add 
+echo -n "Updating $USER user id and group id in payment.ini file: "
+UID=$(id $USER -u)
+GID=$(id $USER -g)
+sed -e '/uid/c uid = $UID' -e '/gid/c gid = $GID' payment.ini
+stat $?
 
 
-### calling function to update systemd service file with ip address
-#CONFIG_SERVICE
+## calling function to update systemd service file with ip address
+CONFIG_SERVICE
 
-## calling start service function
-#STARTING_SERV
+# calling start service function
+STARTING_SERV
