@@ -108,14 +108,14 @@ MVN_INSTALL(){
 
 PYTHON_INST(){
     echo -n "Install python 3: "
-    yum install python36 gcc python3-devel -y
+    yum install python36 gcc python3-devel -y &>> $LOGFILE
     stat $?
 }
 
 PAYMENT_INST(){
     echo -n "Installing $COMPONENT: "
     cd /home/roboshop/payment 
-    pip3 install -r requirements.txt
+    pip3 install -r requirements.txt &>> $LOGFILE
     stat $?
 
 }
