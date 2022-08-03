@@ -1,5 +1,11 @@
 #!/bin/bash
 
+
+if [ "$1" = "" ] ; then 
+    echo -e "\e[31m Valid options are -name or all \e[0m"
+    exit 1
+fi
+
 COMPONENT=$1
 SG_ID="sg-04b01b7734f241f98"
 
